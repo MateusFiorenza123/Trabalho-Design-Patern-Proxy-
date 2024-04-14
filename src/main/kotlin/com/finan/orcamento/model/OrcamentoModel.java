@@ -30,6 +30,12 @@ public class OrcamentoModel implements Serializable {
     @Column(name="valor_icms")
     private BigDecimal valorICMS;
 
+    @Column(name="qtd_itens")
+    private BigDecimal qtdItens;
+
+    @Column(name="desconto_orcamento")
+    private BigDecimal descontoOrcamento;
+
     @ManyToOne
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;

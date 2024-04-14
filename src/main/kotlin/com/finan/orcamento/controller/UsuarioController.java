@@ -31,7 +31,7 @@ public class UsuarioController {
     public ResponseEntity<UsuarioModel>cadastraUsuario(@RequestBody UsuarioModel usuarioModel){
         return ResponseEntity.ok(usuarioService.cadastrarUsuario(usuarioModel));
     }
-    @PostMapping(path="/put/{id}")
+    @PutMapping(path="/put/{id}")
     public ResponseEntity<UsuarioModel>atualizaUsuario(@RequestBody UsuarioModel usuarioModel, @PathVariable Long id){
         UsuarioModel usuarioNewObj=usuarioService.atualizaUsuario(usuarioModel, id);
         return ResponseEntity.ok().body(usuarioNewObj);

@@ -20,6 +20,11 @@ public class OrcamentoController {
 
     @GetMapping
     public ResponseEntity<List<OrcamentoModel>>buscaTodosOrcamentos(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return ResponseEntity.ok(orcamentoService.buscarCadastro());
     }
     @GetMapping(path="/pesquisaid/{id}")
@@ -31,7 +36,7 @@ public class OrcamentoController {
     public ResponseEntity<OrcamentoModel>cadastraOrcamento(@RequestBody OrcamentoModel orcamentoModel){
         return ResponseEntity.ok(orcamentoService.cadastrarOrcamento(orcamentoModel));
     }
-    @PostMapping(path="/put/{id}")
+    @PutMapping(path="/put/{id}")
     public ResponseEntity<OrcamentoModel>atualizaOrcamento(@RequestBody OrcamentoModel orcamentoModel, @PathVariable Long id){
         OrcamentoModel orcamentoNewObj= orcamentoService.atualizaCadastro(orcamentoModel, id);
         return ResponseEntity.ok().body(orcamentoNewObj);
