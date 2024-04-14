@@ -36,6 +36,14 @@ public class OrcamentoModel implements Serializable {
     @Column(name="desconto_orcamento")
     private BigDecimal descontoOrcamento;
 
+    @Column(name="subtracao")
+    private BigDecimal subtracaoCalculo;
+
+    public BigDecimal getSubtracaoCalculo() {
+        subtracaoCalculo = valorOrcamento.subtract(descontoOrcamento);
+        return subtracaoCalculo;
+    }
+    
     @ManyToOne
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;
